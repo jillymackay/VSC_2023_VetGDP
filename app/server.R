@@ -23,7 +23,6 @@ shinyServer(function(input, output, session) {
     }
     
     readxl::read_excel(infile$datapath) %>% 
-      %>% 
       mutate_at(.vars = vars(`Companion Animal - Pruritus...18`:`In many cases, there needs to be a significant *economic consideration* to the *level of treatment* that can be provided to a patient that reflects the *financial circumstances of the client.* How well did your veterinary programme prepare you to consider and offer treatments that *take into account the financial constraints of the client*?`),
                 .funs = function(x) case_when (NA ~ "Not Applicable",
                                                TRUE ~ as.character(x)))  %>% 
@@ -187,7 +186,6 @@ shinyServer(function(input, output, session) {
     }
     
     readxl::read_excel(infile$datapath) %>% 
-      %>% 
       mutate_at(.vars = vars(`Companion Animal -Pruritus...9`:`In many cases, there needs to be a significant economic consideration to the level of treatment that can be provided to a patient that reflects the financial circumstances of the client`),
                 .funs = function(x) case_when (NA ~ "Not Applicable",
                                                TRUE ~ as.character(x)))  %>% 
@@ -339,10 +337,14 @@ shinyServer(function(input, output, session) {
   
   adgrad <- reactive ({
     
+    if (is.null(c(ads, grad))) {
+      return(NULL)
+    }
+    
     
     d1 <- ads() %>% 
       select(-c("Adviser Gender":"Adviser Position"))
-    d2 <- grads() %>% 
+    d2 <- grad() %>% 
       select(-c("Grad Gender":"Grad Confidence First Start"))
     
    rbind (d1, d2) %>% 
@@ -354,27 +356,16 @@ shinyServer(function(input, output, session) {
   
   
   
-  t1 <- reactive ({
-    adgrad() %>% 
-      pivot_longer(cols= c(-grp), names_to = "response", values_to = "score" ) %>% 
-      filter(is.na(score)) %>% 
-      group_by(grp, response, score) %>% 
-      tally() %>%
-      mutate("Percentage" = round(n/78*100, 2)) %>% 
-      rename("Group" = grp,
-             Question = "response") %>% 
-      select(Group, Question, n, Percentage) %>% 
-      arrange(Percentage) 
-  })
-  
   
   # ---------- Plots
   
   
   output$table1 <- renderTable({
     
-  t1()
-    
+    adgrad() %>% 
+      group_by(grp) %>% 
+      tally() %>% 
+      as.tibble()
   })
   
   
