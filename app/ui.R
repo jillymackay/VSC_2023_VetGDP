@@ -7,31 +7,35 @@ library(DT)
 
 
 shinyUI(
-  navbarPage(title = "A basic Shiny App to build off of",
+  navbarPage(title = "Vet GDP Outcomes",
              id = "navbar",
-             tabPanel(title = "Panel 1: About",
+             tabPanel(title = "Start here - upload your data",
                       sidebarLayout(
-                        sidebarPanel(tags$p("This is a sidebar panel within Panel 1"),
-                                     tags$p("You can ask for stuff here. Suggest a name which will be processed in the server to an output!"),
-                                     textInput(inputId = "rand_name_in",
-                                               label = "Input any old name here!",
-                                               placeholder = "Jane")),
+                        sidebarPanel(tags$p("Upload your data"),
+                                     tags$p("You need to upload your redacted excel files from RCVS. They should be named something like: 'School Name' ADVISER survery raw data 2022 REDACTED.xlsx"),
+                                     fileInput(inputId = "grads",
+                                               label = "Upload your GRADUATE file here"),
+                                     fileInput(inputId = "ads",
+                                               label = "Upload your ADVISER file here")
+                                     ),
                         
-                        mainPanel(tags$h2("Displaying data"),
-                                  tags$p("Once you have inputted a name, it should appear here!"),
-                                  verbatimTextOutput("rand_name"))
-                      )),
+                        mainPanel(tags$h2("About this app"),
+                                  tags$p("This application will process and analyse your Vet GDP outcomes raw data from RCVS. 
+                                         Your output report will be comparable to any other school which uses the same app, and
+                                         is based on the analysis that the R(D)SVS Data Officer conducted for reporting to accrediting bodies."),
+                                  tags$p("The R(D)SVS will not have access to your data or to your output reports. We have made this app and
+                                         the process of analysis contained within available as part of our enhancement led approach to quality assurance.")
+                      ))),
              
-             tabPanel(title = "Panel 2: Charts with fluid chunks!",
+             
+             # ------------------------- Output Tab below -------------------
+             
+             tabPanel(title = "See your report",
                       fluidPage(
-                        fluidRow(column(width = 6,
-                                        plotOutput(outputId = "plot1")),
-                                 column(width = 6, 
-                                        plotOutput(outputId = "plot2")),
-                                 fluidRow(column(width = 12, 
-                                                 plotOutput(outputId = "plot3"))))
+                        fluidRow(fluidRow(column(width = 12,
+                                                 tableOutput(outputId = "table1")))
                       ))
              
-             
+             # -------------------------  App close brackets
   )
 )
