@@ -34,6 +34,7 @@ shinyUI(
                       fluidPage(
                         fluidRow(fluidRow(column(width = 12,
                                                  tableOutput(outputId = "table1")))
+                      )
                       ))
              
              # -------------------------  App close brackets
