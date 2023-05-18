@@ -14,10 +14,11 @@ shinyUI(
                         sidebarPanel(tags$p("Upload your data"),
                                      tags$p("You need to upload your redacted excel files from RCVS. They should be named something like: ['School Name' ADVISER survey raw data 2022 REDACTED.xlsx]"),
 
-                                     fileInput(inputId = "grad",
-                                               label = "Upload your GRADUATE file here"),
                                      fileInput(inputId = "ad",
-                                               label = "Upload your ADVISER file here")
+                                               label = "Upload your ADVISER file here"),
+                                     fileInput(inputId = "grad",
+                                               label = "Upload your GRADUATE file here")
+                                     
                                      ),
                         
                         mainPanel(tags$h2("About this app"),
@@ -37,23 +38,25 @@ shinyUI(
                       ))),
              
              
-             # ------------------------- Output Tab below -------------------
+             # ------------------------- See your report Tab below -------------------
              
              tabPanel(title = "See your report",
-                      fluidPage(
-                        fluidRow(fluidRow(column(width = 6,
-                                                 plotOutput(outputId = "testplotgrad")),
-                                          column(width = 6, plotOutput(outputId = "testplotad"))),
-                                 fluidRow(column(width = 12,
-                                                 plotOutput(outputId = "testplotboth")))
-                      ),
-                      fluidRow(column(width = 12,
-                                      downloadButton(
-                                        outputId = "report",
-                                        label = "Generate report"
-                                      )))
-                      ))
+                      sidebarLayout(
+                        sidebarPanel(width = 3,
+                                     tags$p("You can download a word document version of this page by clicking below."),
+                                     downloadButton(outputId = "report",
+                                                label = "Generate Downloadable Report")),
+                        mainPanel(fluidPage(fluidRow(fluidRow(column(width = 6,
+                                                                     plotOutput(outputId = "testplotgrad")),
+                                                              column(width = 6, 
+                                                                     plotOutput(outputId = "testplotad")))),
+                                            fluidRow(column(width = 12,
+                                                            plotOutput(outputId = "testplotboth"))))))
+                        
+                      )
+                      
+
              
-             # -------------------------  App close brackets
+             # -------------------------  ShinyUI and NavBar close brackets
   )
 )
