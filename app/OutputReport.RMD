@@ -1,0 +1,79 @@
+---
+title: "QA Report on Vet GDP Outcomes"
+author: "R(D)SVS Vet GDP Outcomes App"
+date: "`r Sys.Date()`"
+output:
+  word_document: default
+params:
+  ad: null
+  grad: null
+  adgrad: null
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, fig.height = 8, fig.width = 10, warning = FALSE, message = FALSE)
+
+
+library(tidyverse)
+library(likert)
+library(grid)
+library(ggstatsplot)
+library(flextable)
+library(officer)
+
+set_flextable_defaults(font.size = 11, padding = 3, width = 2)
+use_df_printer()
+
+
+
+
+```
+
+
+# 2022 Graduate and VetGDP Adviser surveys R(D)SVS Data Report
+## About this report
+
+This report was generated based on the Royal College of Veterinary Surgeons (RCVS) Education Outcomes Data from Graduates and Advisers received in 2023. It was generated from the full redacted data provided by the RCVS for the purposes of additional analyses for quality improvement and processed via the R(D)SVS app. 
+
+
+The majority of questions within the survey are presented in the following format: 
+
+> How well prepared was the graduate to [conduct skill] at the point of graduation?
+
+> \1. (Not at all prepared)
+
+> \2.
+
+> \3.
+
+> \4.
+
+> \5. (Completely prepared)
+
+
+
+
+There are 105 clinical skill related questions and 14 professional skill related questions. Graduates were also asked to rate their overall confidence to work independently when starting their first role on a scale from 1 (Not at all confident) to 5 (Extremely confident).
+
+
+
+
+Within the adviser data there is a large number of 'Not Applicable' responses to the 105 questions asking about the graduate's preparedness to practice a given clinical skill. It is expected that the Not Applicable adviser responses come from advisers who were not able to assess the graduate on a skill, either because they worked wholly within Small Animal practice, or perhaps because they did not feel able to assess the graduate on this skill for another reason. For some questions, the majority of advisers were not able to rate their graduates, see Table 3.
+
+
+```{r}
+params$adgrad %>% 
+  pivot_longer(cols= c(-grp), names_to = "response", values_to = "score" ) %>% 
+  filter(is.na(score)) %>% 
+  group_by(grp, response, score) %>% 
+  tally() %>%
+  mutate("Percentage" = round(n/78*100, 2)) %>% 
+  rename("Group" = grp,
+         Question = "response") %>% 
+  select(Group, Question, n, Percentage) %>% 
+  arrange(Percentage) %>% 
+  flextable() %>% 
+  set_caption("Table 3: Frequency of NA responses across advisers.\nNote, no graduates recorded an 'NA' response for any question")
+
+```
+

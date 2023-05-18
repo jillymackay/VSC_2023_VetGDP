@@ -46,7 +46,12 @@ shinyUI(
                                           column(width = 6, plotOutput(outputId = "testplotad"))),
                                  fluidRow(column(width = 12,
                                                  plotOutput(outputId = "testplotboth")))
-                      )
+                      ),
+                      fluidRow(column(width = 12,
+                                      downloadButton(
+                                        outputId = "report",
+                                        label = "Generate report"
+                                      )))
                       ))
              
              # -------------------------  App close brackets
