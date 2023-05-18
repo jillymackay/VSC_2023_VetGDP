@@ -30,10 +30,16 @@ use_df_printer()
 ```
 
 
-# 2022 Graduate and VetGDP Adviser surveys R(D)SVS Data Report
+# 2022 Graduate and VetGDP Adviser Surveys
 ## About this report
 
-This report was generated based on the Royal College of Veterinary Surgeons (RCVS) Education Outcomes Data from Graduates and Advisers received in 2023. It was generated from the full redacted data provided by the RCVS for the purposes of additional analyses for quality improvement and processed via the R(D)SVS app. 
+This report was generated based on the Royal College of Veterinary Surgeons (RCVS) Education Outcomes Data from Graduates and Advisers received in 2023. It was generated from the full redacted data provided by the RCVS for the purposes of additional analyses for quality improvement and processed via the R(D)SVS app. [More information about the app can be found here](https://github.com/jillymackay/VSC_2023_VetGDP).
+
+This data was collected by the RCVS, and the R(D)SVS app has no input into question formation or data collection. 
+
+Graduates respond to the RCVS survey prior to setting up their personal e-portfolio. Advisers were matched with graduates to act as a mentor and asked to complete the survey  approximately 6 weeks after the graduate had started their programme to allow time for skills to be assessed. Advisers worked only with 2022 graduates. 
+
+**Please note**: While we have data from graduates and data from advisers, we do not have paired data, e.g. we do not know which adviser was linked with what graduate. This limits the inferences and statistical comparisons that can be made. For example, we may see that for a given skill, the advisers have a lower average graduate preparedness score than the graduates do. There are two possible explanations for this finding. The first is that all advisers tend to rate their graduates a few points lower than the graduate's rate themselves. In this case there would be a consistent effect where all graduates are less prepared than they believe. The second explanation is that most advisers and graduates agree, but there are some where there is a very large mismatch between graduate and adviser. In this case, the effect is constrained to certain cases. With the current data we cannot distinguish between these two plausible explanations.
 
 
 The majority of questions within the survey are presented in the following format: 
@@ -49,7 +55,6 @@ The majority of questions within the survey are presented in the following forma
 > \4.
 
 > \5. (Completely prepared)
-
 
 
 
