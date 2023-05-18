@@ -78,7 +78,8 @@ shinyUI(
                                                 the graduates first roles and the adviser areas in your data are presented below."),
                                          
                                          fluidRow(column(width = 5,
-                                                         tags$h4("Frequency and proportion of adviser area")),
+                                                         tags$h4("Frequency and proportion of adviser area"),
+                                                         tableOutput(outputId = "t2_adarea")),
                                                   column(width = 2),
                                                   column(width = 5,
                                                          tags$h4("Frequency and proportion of graduate first role")))),

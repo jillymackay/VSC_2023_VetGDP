@@ -9,9 +9,11 @@ library(grid)
 
 
 
+
+
 shinyServer(function(input, output, session) {
   
-  
+
   
   
   # ---------- Read and clean grad and ad data
@@ -391,6 +393,16 @@ shinyServer(function(input, output, session) {
 
    })
    
+   
+   output$t2_adarea <- renderTable({
+     
+     factor_sum(ad()$`Adviser Area`) %>% 
+       rename("Adviser Area" = factor_name,
+              "Frequency" = Freq,
+              "Percentage" = Perc) %>% 
+       arrange(Percentage)
+     
+   })
    
    
   
