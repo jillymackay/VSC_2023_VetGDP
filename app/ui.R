@@ -45,7 +45,8 @@ shinyUI(
                       fluidPage(fluidRow(tags$p("You can download a word document version of this page by clicking below."),
                                          downloadButton(outputId = "report",
                                                         label = "Generate Downloadable Report")),
-                                fluidRow(tags$h1("2022 Graduate and VetGDP Adviser Surveys"),
+                                fluidRow(tags$hr(),
+                                         tags$h1("2022 Graduate and VetGDP Adviser Surveys"),
                                          tags$h2("About this report"),
                                          tags$p("This report was generated based on the Royal College of Veterinary Surgeons (RCVS) Education Outcomes Data from 
                                                 Graduates and Advisers received in 2023. It was generated from the full redacted data provided by the RCVS for the 
@@ -66,6 +67,17 @@ shinyUI(
                                          tags$p("There are 105 clinical skill related questions and 14 professional skill related questions. Graduates were also asked to rate 
                                                 their overall confidence to work independently when starting their first role on a scale from 1 (Not at all confident) to 5 
                                                 (Extremely confident).")),
+                                
+                                fluidRow(tags$h2("Adviser and Graduate Role"),
+                                         tags$p("While it is possible for advisers and graduates to work in a range of areas, 
+                                                the graduates first roles and the adviser areas in your data are presented below."),
+                                         
+                                         fluidRow(column(width = 5,
+                                                         tags$h4("Frequency and proportion of adviser area")),
+                                                  column(width = 2),
+                                                  column(width = 5,
+                                                         tags$h4("Frequency and proportion of graduate first role")))),
+                                
                                 fluidRow(column(width = 6,
                                                 plotOutput(outputId = "testplotgrad")),
                                          column(width = 6, 

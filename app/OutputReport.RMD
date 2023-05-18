@@ -61,6 +61,34 @@ The majority of questions within the survey are presented in the following forma
 There are 105 clinical skill related questions and 14 professional skill related questions. Graduates were also asked to rate their overall confidence to work independently when starting their first role on a scale from 1 (Not at all confident) to 5 (Extremely confident).
 
 
+# Adviser and Graduate Role
+
+While it is possible for advisers and graduates to work in a range of areas, the graduates first roles and the adviser areas in your data are presented below. 
+
+
+### Advisers
+```{r}
+factor_sum(addat$`Adviser Area`) %>% 
+  rename("Adviser Area" = factor_name,
+         "Frequency" = Freq,
+         "Percentage" = Perc) %>% 
+  arrange(Percentage) %>% 
+  flextable() %>% 
+  set_caption("Frequency and proportion of adviser area")
+
+```
+
+### Graduates
+```{r}
+factor_sum(graddat$`Grad First Role`) %>% 
+  rename("Graduate First Role" = factor_name,
+         "Frequency" = Freq,
+         "Percentage" = Perc) %>%
+  arrange(Percentage) %>% 
+  flextable() %>% 
+  set_caption("Frequency and proportion of graduate first role")
+
+```
 
 
 Within the adviser data there is a large number of 'Not Applicable' responses to the 105 questions asking about the graduate's preparedness to practice a given clinical skill. It is expected that the Not Applicable adviser responses come from advisers who were not able to assess the graduate on a skill, either because they worked wholly within Small Animal practice, or perhaps because they did not feel able to assess the graduate on this skill for another reason. For some questions, the majority of advisers were not able to rate their graduates, see Table 3.
