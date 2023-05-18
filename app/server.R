@@ -415,40 +415,72 @@ shinyServer(function(input, output, session) {
      
    })
    
+   output$t4_adgradna <- renderTable({
+     adgrad() %>% 
+       pivot_longer(cols= c(-grp), names_to = "response", values_to = "score" ) %>% 
+       filter(is.na(score)) %>% 
+       group_by(grp, response, score) %>% 
+       tally() %>%
+       mutate("Percentage" = round(n/78*100, 2)) %>% 
+       rename("Group" = grp,
+              Question = "response") %>% 
+       select(Group, Question, n, Percentage) %>% 
+       arrange(Percentage)
+     
+   })
+   
+   
+   output$t5_gradgend <- renderTable({
+     
+     factor_sum(grad()$`Grad Gender`)  %>% 
+       rename("Graduate Gender" = factor_name,
+              "Frequency" = Freq,
+              "Percentage" = Perc) 
+     
+   })
+   
+   
+   output$t6_gradage <- renderTable({
+     
+     factor_sum(grad()$`Grad Age`) %>% 
+       rename("Graduate Age" = factor_name,
+              "Frequency" = Freq,
+              "Percentage" = Perc)
+     
+   })
+   
+   output$t7_gradeth <- renderTable({
+     
+     factor_sum(grad()$`Grad Ethnicity`) %>% 
+       rename("Graduate Ethnicity" = factor_name,
+              "Frequency" = Freq,
+              "Percentage" = Perc)
+   })
+   
+   
+   output$t8_graddis <- renderTable({
+     
+     factor_sum(grad()$`Grad Disability`) %>% 
+       rename("Graduate disability status" = factor_name,
+              "Frequency" = Freq,
+              "Percentage" = Perc)
+   })
   
   # ---------- Plots
   
-  
-  output$testplotgrad <- renderPlot({
-    grad() %>% 
+  output$p1_gradconf <- renderPlot({
+    
+    grad() %>%
       ggplot(aes(x = `Grad Confidence First Start`, fill = `Grad First Role`)) +
       geom_bar() +
       theme_classic() +
       scale_x_continuous(breaks = seq(1, 5, 1), limits = c(0,5.5)) +
       labs(y = "Count of Graduates")
-  })
-  
-  output$testplotad <- renderPlot({
-    ad() %>% 
-      ggplot(aes(x = `Adviser Area`, y = `Hx CA pruritis`, fill = `Hx CA pruritis`)) +
-      geom_bar(stat = "identity")
-  })
-  
-  
-  output$testplotboth <- renderPlot({
     
-    adgrad() %>%
-      mutate_at(.vars = vars(`Hx CA pruritis`:`Prof Skills Consider economic factors`),
-                .funs = as.numeric) %>% 
-      mutate(grp = as.factor(grp)) %>% 
-      janitor::clean_names() %>% 
-      ggbetweenstats(grp, preventative_healthcare_pa_nutrition) +
-      labs (y = "Prepared to conduct task (1 Not at all prepared, 5 Completely prepared)",
-            x = "Group",
-            title = "Preventive Health Care: Production Animal Nutrition" )
+    
   })
-  
-  
+
+  #----------------- Report Download
   
   output$report <- downloadHandler(
     filename =  "vetGDPreport.docx",

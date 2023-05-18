@@ -90,8 +90,9 @@ factor_sum(params$grad$`Grad First Role`) %>%
 
 ```
 
+## Non applicable responses
 
-Within the adviser data there is a large number of 'Not Applicable' responses to the 105 questions asking about the graduate's preparedness to practice a given clinical skill. It is expected that the Not Applicable adviser responses come from advisers who were not able to assess the graduate on a skill, either because they worked wholly within Small Animal practice, or perhaps because they did not feel able to assess the graduate on this skill for another reason. For some questions, the majority of advisers were not able to rate their graduates, see Table 3.
+Within the adviser data there is a large number of 'Not Applicable' responses to the 105 questions asking about the graduate's preparedness to practice a given clinical skill. It is expected that the Not Applicable adviser responses come from advisers who were not able to assess the graduate on a skill, either because they worked wholly within Small Animal practice, or perhaps because they did not feel able to assess the graduate on this skill for another reason. For some questions, the majority of advisers were not able to rate their graduates, see below.
 
 
 ```{r}
@@ -106,7 +107,67 @@ params$adgrad %>%
   select(Group, Question, n, Percentage) %>% 
   arrange(Percentage) %>% 
   flextable() %>% 
-  set_caption("Table 3: Frequency of NA responses across advisers.\nNote, no graduates recorded an 'NA' response for any question")
+  set_caption("Frequency of NA responses across advisers.\nNote, graduates unlikely to record an 'NA' response for any question")
 
 ```
 
+
+
+# Graduate Data
+
+Graduate gender, age, ethnicity and disability states were self-reported and as below. 
+
+**Gender**
+```{r}
+factor_sum(params$grad$`Grad Gender`)  %>% 
+  rename("Graduate Gender" = factor_name,
+         "Frequency" = Freq,
+         "Percentage" = Perc) %>%
+  flextable() %>% 
+  set_caption("Graduate gender")
+```
+
+**Age**
+```{r}
+factor_sum(params$grad$`Grad Age`) %>% 
+  rename("Graduate Age" = factor_name,
+         "Frequency" = Freq,
+         "Percentage" = Perc) %>%
+  flextable() %>% 
+  set_caption("Graduate age category")
+
+```
+
+**Ethnicity**
+```{r}
+factor_sum(params$grad$`Grad Ethnicity`) %>% 
+  rename("Graduate Ethnicity" = factor_name,
+         "Frequency" = Freq,
+         "Percentage" = Perc) %>%
+  flextable() %>% 
+  set_caption("Graduate ethnicity")
+```
+
+**Disability**
+```{r}
+factor_sum(params$grad$`Grad Disability`) %>% 
+  rename("Graduate disability status" = factor_name,
+         "Frequency" = Freq,
+         "Percentage" = Perc) %>%
+  flextable() %>% 
+  set_caption("Graduate disability recording")
+
+```
+
+
+Graduates were asked to rate their confidence from 1 (Not at all confident) to 5 (Extremely confident) to work independently when they started their first role:
+
+```{r, fig.cap = "Graduate's rating of their own confidence at start of employment", fig.height = 6, fig.width = 10}
+params$grad %>%
+  ggplot(aes(x = `Grad Confidence First Start`, fill = `Grad First Role`)) +
+  geom_bar() +
+  theme_classic() +
+  scale_x_continuous(breaks = seq(1, 5, 1), limits = c(0,5.5)) +
+  labs(y = "Count of Graduates")
+
+```

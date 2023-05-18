@@ -83,17 +83,43 @@ shinyUI(
                                                   column(width = 2),
                                                   column(width = 5,
                                                          tags$h4("Frequency and proportion of graduate first role"),
-                                                         tableOutput(outputId = "t3_gradarea")))),
+                                                         tableOutput(outputId = "t3_gradarea"))),
+                                         tags$h3("Non applicable responses"),
+                                         tags$p("Within the adviser data there is a large number of 'Not Applicable' responses to the 105 questions asking about the graduate's 
+                                                preparedness to practice a given clinical skill. It is expected that the Not Applicable adviser responses come from advisers who 
+                                                were not able to assess the graduate on a skill, either because they worked wholly within Small Animal practice, or perhaps because 
+                                                they did not feel able to assess the graduate on this skill for another reason. For some questions, the majority of advisers were 
+                                                not able to rate their graduates"),
+                                         tags$h4("Frequency of NA responses across advisers and graduates.\nNote, graduates unlikely to record an 'NA' response for any question"),
+                                         tableOutput("t4_adgradna")),
                                 
-                                fluidRow(column(width = 6,
-                                                plotOutput(outputId = "testplotgrad")),
-                                         column(width = 6, 
-                                                plotOutput(outputId = "testplotad"))),
-                                fluidRow(column(width = 12,
-                                                plotOutput(outputId = "l_hist")))
+                                
+                                fluidRow(tags$h2("Graduate Data"),
+                                         tags$p("Graduate gender, age, ethnicity and disability states were self-reported and as below."),
+                                         fluidRow(column(width = 5,
+                                                         tags$h4("Graduate gender"),
+                                                         tableOutput(outputId = "t5_gradgend")),
+                                                  column(width = 2),
+                                                  column(width = 5,
+                                                         tags$h4("Graduate age category"),
+                                                         tableOutput(outputId = "t6_gradage")),
+                                         fluidRow(column(width = 5,
+                                                        tags$h4("Graduate ethnicity"),
+                                                        tableOutput(outputId = "t7_gradeth"),
+                                                  column(width = 2),
+                                                  column(width = 5,
+                                                         tags$h4("Graduate disability recording"),
+                                                         tableOutput(outputId = "t8_graddis"))))),
+                                         fluidRow(tags$p("Graduates were asked to rate their confidence from 1 (Not at all confident) to 5 (Extremely confident) to work independently
+                                         when they started their first role:"),
+                                                  tags$h4("Graduate's rating of their own confidence at start of employment"),
+                                                  plotOutput(outputId = "p1_gradconf"))),
+                                
+                                
+
                                 )
 
-                        
+                      
                       )
                       
 
