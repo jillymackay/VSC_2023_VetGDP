@@ -8,6 +8,7 @@ params:
   ad: null
   grad: null
   adgrad: null
+  l_hist: null
 ---
 
 ```{r setup, include=FALSE}
@@ -25,7 +26,37 @@ set_flextable_defaults(font.size = 11, padding = 3, width = 2)
 use_df_printer()
 
 
-
+# l_hist <- likert(items = params$adgrad[,1:9], grouping = params$adgrad[,120])
+# 
+# l_exams <- likert(items = params$adgrad[,10:18], grouping = params$adgrad[,120])
+# 
+# l_prioritise_ddx <- likert(items = params$adgrad[,19:27], grouping = params$adgrad[,120])
+# 
+# l_tx_planning <- likert(items = params$adgrad[,28:36], grouping = params$adgrad[,120])
+# 
+# l_emergencies <- likert(items = params$adgrad[,37:42], grouping = params$adgrad[,120])
+# 
+# l_surg_preop <- likert(items = params$adgrad[,43:51], grouping = params$adgrad[,120])
+# 
+# l_surg_surg <- likert(items = params$adgrad[,52:60], grouping = params$adgrad[,120])
+# 
+# l_surg_postop <- likert(items = params$adgrad[,61:69], grouping = params$adgrad[,120])
+# 
+# l_anaesthesia <- likert(items = params$adgrad[,70:78], grouping = params$adgrad[,120])
+# 
+# l_pm <- likert(items = params$adgrad[,79:81], grouping = params$adgrad[,120])
+# 
+# l_healthcareplans <- likert(items = params$adgrad[,82:93], grouping = params$adgrad[,120])
+# 
+# l_epi <- likert(items = params$adgrad[,94:102], grouping = params$adgrad[,120])
+# 
+# l_handling <-likert(items = params$adgrad[,103:105], grouping = params$adgrad[,120])
+# 
+# l_evidence <- likert(items = params$adgrad[,106, drop = FALSE], grouping = params$adgrad[,120])
+# 
+# l_profskills <- likert(items = params$adgrad[,107:112], grouping = params$adgrad[,120])
+# 
+# l_preparation <- likert(items = params$adgrad[,113:119], grouping = params$adgrad[,120])
 
 ```
 
@@ -209,4 +240,91 @@ factor_sum(params$ad$`Adviser Position`) %>%
   flextable() %>% 
   set_caption("Adviser position")
 ```
+
+
+
+# Comparisons of Grad vs Adviser Perspectives
+
+It may be useful to explore where there were differences between the adviser and graduate ratings of preparedness. Note, as previously mentioned, we cannot determine whether these differences are a consistent disagreement between advisers and graduates, or whether it is a large disagreement in a select number of cases. 
+
+Additionally, please note that there are a number of 'NA' responses for advisers. These are not pictured here, please refer to the table above for a note of how many NA responses are contained within each category. 
+
+
+
+```{r, fig.cap = "History taking\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10}
+
+params$l_hist
+
+```
+
+
+<!-- ```{r, fig.cap =  "Examinations\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10} -->
+<!-- plot(l_exams)  -->
+<!-- ``` -->
+
+<!-- ```{r, fig.cap= "Prioritise a differential diagnosis\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10} -->
+<!-- plot(l_prioritise_ddx)  -->
+<!-- ``` -->
+
+<!-- ```{r, fig.cap = "Treatment planning\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10} -->
+<!-- plot(l_tx_planning)  -->
+<!-- ``` -->
+
+
+<!-- ```{r, fig.cap = "Emergencies\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10} -->
+<!-- plot(l_emergencies) -->
+<!-- ``` -->
+
+
+<!-- ```{r, fig.cap = "Surgery (pre-op prep)\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10} -->
+<!-- plot(l_surg_preop) -->
+<!-- ``` -->
+
+<!-- ```{r, fig.cap = "Surgery\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10} -->
+<!-- plot(l_surg_surg) -->
+<!-- ``` -->
+
+
+<!-- ```{r, fig.cap = "Surgery (post op care)\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10} -->
+<!-- plot(l_surg_postop) -->
+<!-- ``` -->
+
+
+<!-- ```{r, fig.cap = "Anaesthesia\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10} -->
+<!-- plot(l_anaesthesia) -->
+<!-- ``` -->
+
+
+<!-- ```{r, fig.cap = "Post-mortem\n(1 (Not at all prepared), 5 (Completely prepared))"} -->
+<!-- plot(l_pm) -->
+<!-- ``` -->
+
+
+<!-- ```{r, fig.cap = "Preventative healthcare plans\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10} -->
+<!-- plot(l_healthcareplans) -->
+<!-- ``` -->
+
+<!-- ```{r, fig.cap ="Basic epidemiological investigations\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10} -->
+<!-- plot(l_epi) -->
+<!-- ``` -->
+
+
+<!-- ```{r, fig.cap = "Animal handling\n(1 (Not at all prepared), 5 (Completely prepared))"} -->
+<!-- plot(l_handling) -->
+<!-- ``` -->
+
+<!-- ```{r, fig.cap = "Evaluating evidence\n(1 (Not at all prepared), 5 (Completely prepared))"} -->
+<!-- plot(l_evidence) -->
+<!-- ``` -->
+
+
+
+<!-- ```{r, fig.cap = "Professional skills and attributes required for independent practice\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10} -->
+<!-- plot(l_profskills) -->
+<!-- ``` -->
+
+
+<!-- ```{r, fig.cap = "Professional skills and attributes at the point of graduation\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10} -->
+<!-- plot(l_preparation) -->
+<!-- ``` -->
 

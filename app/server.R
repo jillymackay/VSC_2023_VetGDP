@@ -379,7 +379,89 @@ shinyServer(function(input, output, session) {
      
    })
    
- 
+   
+    
+    output$l_exams <- renderPlot({
+      l_exams <- likert(items = adgrad()[,10:18], grouping = adgrad()[,120])
+      plot(l_exams)
+    })
+    
+    output$l_prioritise_ddx <- renderPlot({
+      l_prioritise_ddx <- likert(items = adgrad()[,19:27], grouping = adgrad()[,120])
+      plot(l_prioritise_ddx)
+      
+    })
+    
+    
+    output$l_tx_planning <- renderPlot({
+      l_tx_planning <- likert(items = adgrad()[,28:36], grouping = adgrad()[,120])
+      plot(l_tx_planning)
+    })
+    
+    
+    output$l_emergencies <- renderPlot({
+      l_emergencies <- likert(items = adgrad()[,37:42], grouping = adgrad()[,120])
+      plot(l_emergencies)
+    })
+    
+    output$l_surg_preop <- renderPlot({
+      l_surg_preop <- likert(items = adgrad()[,43:51], grouping = adgrad()[,120])
+      plot(l_surg_preop)
+    })
+    
+    output$l_surg_surg <- renderPlot({
+      l_surg_surg <- likert(items = adgrad()[,52:60], grouping = adgrad()[,120])
+      plot(l_surg_surg)
+    })
+    
+    output$l_surg_postop <- renderPlot({
+      l_surg_postop <- likert(items = adgrad()[,61:69], grouping = adgrad()[,120])
+      plot(l_surg_postop)
+    })
+    
+    output$l_anaesthesia <- renderPlot({
+      l_anaesthesia <- likert(items = adgrad()[,70:78], grouping = adgrad()[,120])
+      plot(l_anaesthesia)
+    })
+    
+    output$l_pm <- renderPlot({
+      l_pm <- likert(items =adgrad()[,79:81], grouping = adgrad()[,120])
+      plot(l_pm)
+    })
+    
+    output$l_healthcareplans <- renderPlot({
+      l_healthcareplans <- likert(items = adgrad()[,82:93], grouping = adgrad()[,120])
+      plot(l_healthcareplans)
+    })
+    
+    output$l_epi <- renderPlot({
+      l_epi <- likert(items = adgrad()[,94:102], grouping = adgrad()[,120])
+      plot(l_epi)
+    })
+    
+    output$l_handling <- renderPlot({
+      l_handling <-likert(items = adgrad()[,103:105], grouping = adgrad()[,120])
+      plot(l_handling)
+    })
+    
+    output$l_evidence <- renderPlot({
+      
+      l_evidence <- likert(items = adgrad()[,106, drop = FALSE], grouping = adgrad()[,120])
+      plot(l_evidence)
+ })
+    
+    output$l_profskills <- renderPlot({
+      
+      l_profskills <- likert(items = adgrad()[,107:112], grouping = adgrad()[,120])
+      plot(l_profskills)
+    })
+    
+    output$l_preparation <- renderPlot({
+      l_preparation <- likert(items = adgrad()[,113:119], grouping = adgrad()[,120])
+      plot(l_preparation)
+      
+    })
+  
    
    # ------------------ Tables
    
