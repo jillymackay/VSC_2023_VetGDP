@@ -13,9 +13,9 @@ shinyUI(
                       sidebarLayout(
                         sidebarPanel(tags$p("Upload your data"),
                                      tags$p("You need to upload your redacted excel files from RCVS. They should be named something like: 'School Name' ADVISER survery raw data 2022 REDACTED.xlsx"),
-                                     fileInput(inputId = "grads",
+                                     fileInput(inputId = "grad",
                                                label = "Upload your GRADUATE file here"),
-                                     fileInput(inputId = "ads",
+                                     fileInput(inputId = "ad",
                                                label = "Upload your ADVISER file here")
                                      ),
                         
@@ -32,8 +32,11 @@ shinyUI(
              
              tabPanel(title = "See your report",
                       fluidPage(
-                        fluidRow(fluidRow(column(width = 12,
-                                                 tableOutput(outputId = "table1")))
+                        fluidRow(fluidRow(column(width = 6,
+                                                 plotOutput(outputId = "testplotgrad")),
+                                          column(width = 6, plotOutput(outputId = "testplotad"))),
+                                 fluidRow(column(width = 12,
+                                                 plotOutput(outputId = "testplotboth")))
                       )
                       ))
              
