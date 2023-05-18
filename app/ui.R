@@ -13,6 +13,7 @@ shinyUI(
                       sidebarLayout(
                         sidebarPanel(tags$p("Upload your data"),
                                      tags$p("You need to upload your redacted excel files from RCVS. They should be named something like: ['School Name' ADVISER survey raw data 2022 REDACTED.xlsx]"),
+
                                      fileInput(inputId = "grad",
                                                label = "Upload your GRADUATE file here"),
                                      fileInput(inputId = "ad",
@@ -23,6 +24,7 @@ shinyUI(
                                   tags$p("This application will process and analyse your Vet GDP outcomes raw data from RCVS. 
                                          Your output report will be comparable to any other school which uses the same app, and
                                          is based on the analysis that the R(D)SVS Data Officer conducted for reporting to accrediting bodies."),
+
                                   tags$p("The R(D)SVS will not have access to your data or to your output reports, although your data will be processed
                                   on a University of Edinburgh server, we will not have access to that data. 
                                   We have made this app available as part of our enhancement led approach to quality assurance."),
@@ -31,6 +33,7 @@ shinyUI(
                                          "We have made this code and app freely available under the 'unlicense', which you can find out more information about
                                          at the link. You are free to take and modify this code for your own purposes, but we cannot provide any warranty or liability
                                          for its use.")
+
                       ))),
              
              
