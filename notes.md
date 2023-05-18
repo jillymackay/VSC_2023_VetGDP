@@ -10,4 +10,4 @@ Create all the likert objects
 
 Get writing
 
-Look at creating pdf output
+Write RMD for word doc

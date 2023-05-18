@@ -41,17 +41,18 @@ shinyUI(
              # ------------------------- See your report Tab below -------------------
              
              tabPanel(title = "See your report",
-                      sidebarLayout(
-                        sidebarPanel(width = 3,
-                                     tags$p("You can download a word document version of this page by clicking below."),
-                                     downloadButton(outputId = "report",
-                                                label = "Generate Downloadable Report")),
-                        mainPanel(fluidPage(fluidRow(fluidRow(column(width = 6,
-                                                                     plotOutput(outputId = "testplotgrad")),
-                                                              column(width = 6, 
-                                                                     plotOutput(outputId = "testplotad")))),
-                                            fluidRow(column(width = 12,
-                                                            plotOutput(outputId = "testplotboth"))))))
+                      
+                      fluidPage(fluidRow(tags$p("You can download a word document version of this page by clicking below."),
+                                         downloadButton(outputId = "report",
+                                                        label = "Generate Downloadable Report")),
+                                fluidRow(column(width = 6,
+                                                plotOutput(outputId = "testplotgrad")),
+                                         column(width = 6, 
+                                                plotOutput(outputId = "testplotad"))),
+                                fluidRow(column(width = 12,
+                                                plotOutput(outputId = "l_hist")))
+                                )
+
                         
                       )
                       
