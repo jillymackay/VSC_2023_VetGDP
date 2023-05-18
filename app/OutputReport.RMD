@@ -171,3 +171,42 @@ params$grad %>%
   labs(y = "Count of Graduates")
 
 ```
+
+
+
+# Adviser Data
+
+Adviser age, gender, and their position were provided. 
+
+
+*Age*
+```{r}
+
+factor_sum(params$ad$`Adviser Age`) %>% 
+    rename("Adviser Age" = factor_name,
+         "Frequency" = Freq,
+         "Percentage" = Perc) %>% 
+  flextable() %>% 
+  set_caption("Adviser age groups")
+```
+
+*Gender*
+```{r }
+factor_sum(params$ad$`Adviser Gender`) %>% 
+    rename("Adviser Gender" = factor_name,
+         "Frequency" = Freq,
+         "Percentage" = Perc) %>% 
+  flextable() %>% 
+  set_caption("Adviser gender")
+```
+
+*Position*
+```{r}
+factor_sum(params$ad$`Adviser Position`) %>% 
+    rename("Adviser Position" = factor_name,
+         "Frequency" = Freq,
+         "Percentage" = Perc) %>% 
+  flextable() %>% 
+  set_caption("Adviser position")
+```
+

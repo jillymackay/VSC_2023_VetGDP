@@ -465,6 +465,33 @@ shinyServer(function(input, output, session) {
               "Frequency" = Freq,
               "Percentage" = Perc)
    })
+   
+   
+   output$t9_adage <- renderTable({
+     
+     factor_sum(ad()$`Adviser Age`) %>% 
+       rename("Adviser Age" = factor_name,
+              "Frequency" = Freq,
+              "Percentage" = Perc)
+   })
+   
+   
+   output$t10_adgend <- renderTable({
+     
+     factor_sum(ad()$`Adviser Gender`) %>% 
+       rename("Adviser Gender" = factor_name,
+              "Frequency" = Freq,
+              "Percentage" = Perc)
+   })
+   
+   output$t11_adpos <- renderTable({
+     
+     factor_sum(ad()$`Adviser Position`) %>% 
+       rename("Adviser Position" = factor_name,
+              "Frequency" = Freq,
+              "Percentage" = Perc)
+     
+   })
   
   # ---------- Plots
   

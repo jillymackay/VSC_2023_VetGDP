@@ -116,6 +116,19 @@ shinyUI(
                                                   plotOutput(outputId = "p1_gradconf"))),
                                 
                                 
+                                fluidRow(tags$h2("Adviser Data"),
+                                         tags$p("Adviser age, gender, and their position were provided."),
+                                         fluidRow(column(width = 5,
+                                                         tags$h4("Adviser age category"),
+                                                         tableOutput(outputId = "t9_adage")),
+                                                  column(width = 2),
+                                                  column(width = 5,
+                                                         tags$h4("Adviser gender"),
+                                                         tableOutput(outputId = "t10_adgend"))),
+                                         fluidRow(tags$h4("Adviser position"),
+                                                  tableOutput(outputId = "t11_adpos")))
+                                
+                                
 
                                 )
 
