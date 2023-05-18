@@ -253,7 +253,7 @@ Additionally, please note that there are a number of 'NA' responses for advisers
 
 ```{r, fig.cap = "History taking\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10}
 
-l_hist()
+#lik_hist()
 
 ```
 
