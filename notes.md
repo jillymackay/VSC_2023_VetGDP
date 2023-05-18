@@ -11,3 +11,5 @@ Create all the likert objects
 Get writing
 
 Write RMD for word doc
+
+

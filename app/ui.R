@@ -25,6 +25,11 @@ shinyUI(
                                   tags$p("This application will process and analyse your Vet GDP outcomes raw data from RCVS. 
                                          Your output report will be comparable to any other school which uses the same app, and
                                          is based on the analysis that the R(D)SVS Data Officer conducted for reporting to accrediting bodies."),
+                                  
+                                  tags$p("Your data has the following numbers of Graduates and Advisers:"),
+                                  tags$em("Note: the table will show after you have uploaded your data."),
+                                  tableOutput(outputId = "t1_nadgrad"),
+                                  tags$em("If this doesn't seem right, check you have uploaded the correct files on the left hand side."),
 
                                   tags$p("The R(D)SVS will not have access to your data or to your output reports, although your data will be processed
                                   on a University of Edinburgh server, we will not have access to that data. 

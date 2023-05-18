@@ -379,7 +379,17 @@ shinyServer(function(input, output, session) {
    
  
    
+   # ------------------ Tables
    
+   output$t1_nadgrad <- renderTable({
+     
+     adgrad() %>%
+       group_by(grp) %>% 
+       tally() %>% 
+       rename("Group" = grp,
+              "Number" = n)
+
+   })
    
    
    
