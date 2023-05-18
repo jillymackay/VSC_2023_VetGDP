@@ -68,7 +68,7 @@ While it is possible for advisers and graduates to work in a range of areas, the
 
 ### Advisers
 ```{r}
-factor_sum(addat$`Adviser Area`) %>% 
+factor_sum(params$ad$`Adviser Area`) %>% 
   rename("Adviser Area" = factor_name,
          "Frequency" = Freq,
          "Percentage" = Perc) %>% 
@@ -80,7 +80,7 @@ factor_sum(addat$`Adviser Area`) %>%
 
 ### Graduates
 ```{r}
-factor_sum(graddat$`Grad First Role`) %>% 
+factor_sum(params$grad$`Grad First Role`) %>% 
   rename("Graduate First Role" = factor_name,
          "Frequency" = Freq,
          "Percentage" = Perc) %>%

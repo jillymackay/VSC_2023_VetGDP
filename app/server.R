@@ -405,6 +405,16 @@ shinyServer(function(input, output, session) {
    })
    
    
+   output$t3_gradarea <- renderTable({
+     
+     factor_sum(grad()$`Grad First Role`) %>% 
+       rename("Adviser Area" = factor_name,
+              "Frequency" = Freq,
+              "Percentage" = Perc) %>% 
+       arrange(Percentage)
+     
+   })
+   
   
   # ---------- Plots
   

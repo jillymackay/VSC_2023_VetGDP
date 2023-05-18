@@ -82,7 +82,8 @@ shinyUI(
                                                          tableOutput(outputId = "t2_adarea")),
                                                   column(width = 2),
                                                   column(width = 5,
-                                                         tags$h4("Frequency and proportion of graduate first role")))),
+                                                         tags$h4("Frequency and proportion of graduate first role"),
+                                                         tableOutput(outputId = "t3_gradarea")))),
                                 
                                 fluidRow(column(width = 6,
                                                 plotOutput(outputId = "testplotgrad")),
