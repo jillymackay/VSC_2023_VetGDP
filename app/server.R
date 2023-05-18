@@ -374,8 +374,7 @@ shinyServer(function(input, output, session) {
    
    output$l_hist <- renderPlot({
      
-     l_hist <- likert(items = adgrad()[,1:9], grouping = adgrad()[,120])
-     plot(l_hist)
+     lik_hist()
      
    })
    

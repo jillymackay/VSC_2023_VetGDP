@@ -24,3 +24,11 @@ factor_sum <- function(factor_name, perc_round = 2) {
   
   
 }
+
+
+
+# Making Likert Plots
+
+lik_hist <- function(){
+  plot(likert(items = adgrad()[,1:9], grouping = adgrad()[,120]))
+}

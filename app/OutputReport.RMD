@@ -8,7 +8,7 @@ params:
   ad: null
   grad: null
   adgrad: null
-  l_hist: null
+
 ---
 
 ```{r setup, include=FALSE}
@@ -253,7 +253,7 @@ Additionally, please note that there are a number of 'NA' responses for advisers
 
 ```{r, fig.cap = "History taking\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10}
 
-params$l_hist
+l_hist()
 
 ```
 

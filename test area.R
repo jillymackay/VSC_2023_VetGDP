@@ -4,12 +4,17 @@ adgrad %>%
 
 
 
-adg
 
 
 
+l_hist <- likert(items = adgrad[,1:9], grouping = adgrad[,120])
+plot(likert(items = adgrad[,1:9], grouping = adgrad[,120]))
 
 
+lik_hist <- function(){
+  plot(likert(items = adgrad[,1:9], grouping = adgrad[,120]))
+}
+lik_hist()
 
 # Test
 
