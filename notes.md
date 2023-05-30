@@ -1,11 +1,8 @@
 # Notes
 
 
-## To Do
+## Nice-to-haves for future
 
+Consider better formatting for charts.
 
-Tweak formatting of app display
-
-Make faster?
-
-
+How to make app faster/more efficient
