@@ -13,7 +13,49 @@ library(grid)
 
 shinyServer(function(input, output, session) {
   
+  #----------- Utility functions
+  
+  factor_sum <- function(factor_name, perc_round = 2) {
+    
+    x <-table(factor_name) %>% 
+      as.data.frame()
+    
+    xx <- prop.table(table(factor_name)) %>% 
+      as.data.frame() %>% 
+      mutate(Perc = round((Freq*100), perc_round)) %>% 
+      select(-Freq)
+    
+    xxx <- full_join(x,xx)
+    
+    
+    return(xxx)
+    
+    
+  }
+  
+  
+  lik_hist <- function(){
+    plot(likert(items = adgrad()[,1:9], grouping = adgrad()[,120]))
+  }
+  
+  lik_exams <- function(){
+    plot(likert(items = adgrad()[,10:18], grouping = adgrad()[,120]))
 
+  }
+  
+  
+  
+  lik_prioritise_ddx <- function(){
+    plot(likert(items = adgrad()[,19:27], grouping = adgrad()[,120]))
+    
+  }
+  
+  
+  lik_tx_planning <- function(){
+    plot(likert(items = adgrad()[,28:36], grouping = adgrad()[,120]))
+  }
+  
+  
   
   
   # ---------- Read and clean grad and ad data
@@ -381,20 +423,20 @@ shinyServer(function(input, output, session) {
    
     
     output$l_exams <- renderPlot({
-      l_exams <- likert(items = adgrad()[,10:18], grouping = adgrad()[,120])
-      plot(l_exams)
+
+      lik_exams()
+      
     })
     
     output$l_prioritise_ddx <- renderPlot({
-      l_prioritise_ddx <- likert(items = adgrad()[,19:27], grouping = adgrad()[,120])
-      plot(l_prioritise_ddx)
+      
+      lik_prioritise_ddx()
       
     })
     
     
     output$l_tx_planning <- renderPlot({
-      l_tx_planning <- likert(items = adgrad()[,28:36], grouping = adgrad()[,120])
-      plot(l_tx_planning)
+      lik_tx_planning()
     })
     
     

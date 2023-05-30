@@ -16,6 +16,19 @@ lik_hist <- function(){
 }
 lik_hist()
 
+
+
+lik_prioritise_ddx <- function(){
+  plot(likert(items = adgrad()[,19:27], grouping = adgrad()[,120]))
+  
+}
+
+
+lik_tx_planning <- function(){
+  plot(likert(items = adgrad()[,28:36], grouping = adgrad()[,120]))
+}
+
+
 # Test
 
 library(tidyverse)

@@ -26,6 +26,48 @@ set_flextable_defaults(font.size = 11, padding = 3, width = 2)
 use_df_printer()
 
 
+factor_sum <- function(factor_name, perc_round = 2) {
+    
+    x <-table(factor_name) %>% 
+      as.data.frame()
+    
+    xx <- prop.table(table(factor_name)) %>% 
+      as.data.frame() %>% 
+      mutate(Perc = round((Freq*100), perc_round)) %>% 
+      select(-Freq)
+    
+    xxx <- full_join(x,xx)
+    
+    
+    return(xxx)
+    
+    
+  }
+  
+  
+  lik_hist <- function(){
+    plot(likert(items = params$adgrad[,1:9], grouping = params$adgrad[,120]))
+  }
+  
+  lik_exams <- function(){
+    plot(likert(items = params$adgrad[,10:18], grouping = params$adgrad[,120]))
+
+  }
+  
+  
+  
+  lik_prioritise_ddx <- function(){
+    plot(likert(items = params$adgrad[,19:27], grouping = params$adgrad[,120]))
+    
+  }
+  
+  
+  lik_tx_planning <- function(){
+    plot(likert(items = params$adgrad[,28:36], grouping = params$adgrad[,120]))
+  }
+  
+  
+
 # l_hist <- likert(items = params$adgrad[,1:9], grouping = params$adgrad[,120])
 # 
 # l_exams <- likert(items = params$adgrad[,10:18], grouping = params$adgrad[,120])
@@ -253,7 +295,7 @@ Additionally, please note that there are a number of 'NA' responses for advisers
 
 ```{r, fig.cap = "History taking\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10}
 
-#lik_hist()
+lik_hist()
 
 ```
 

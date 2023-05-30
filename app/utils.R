@@ -2,6 +2,14 @@
 # e.g. if you define any functions you need to plot data with
 
 
+# I think I need to call module in the server for this to work?
+
+# Don't think I'll have time for that to do this for veted
+
+# e.g. 
+
+# https://stackoverflow.com/questions/43976128/create-a-reactive-function-outside-the-shiny-app
+
 
 
 
