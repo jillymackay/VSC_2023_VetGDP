@@ -57,6 +57,56 @@ shinyServer(function(input, output, session) {
   
   
   
+  lik_emergencies <- function(){
+    plot(likert(items = adgrad()[,37:42], grouping = adgrad()[,120]))
+  }
+  
+  lik_surg_preop <- function(){
+    plot(likert(items = adgrad()[,43:51], grouping = adgrad()[,120]))
+  }
+  
+  lik_surg_surg <- function(){
+    plot(likert(items = adgrad()[,52:60], grouping = adgrad()[,120]))
+  }
+  
+  lik_surg_postop <- function(){
+    plot(likert(items = adgrad()[,61:69], grouping = adgrad()[,120]))
+  }
+  
+  lik_anaesthesia <- function(){
+    plot(likert(items = adgrad()[,70:78], grouping = adgrad()[,120]))
+  }
+  
+  lik_pm <- function(){
+    plot(likert(items =adgrad()[,79:81], grouping = adgrad()[,120]))
+  }
+  
+  
+  lik_healthcareplans <- function(){
+    plot(likert(items = adgrad()[,82:93], grouping = adgrad()[,120]))
+  }
+  
+  lik_epi <- function (){
+    plot(likert(items = adgrad()[,94:102], grouping = adgrad()[,120]))
+  }
+  
+  lik_handling <- function(){
+    plot(likert(items = adgrad()[,103:105], grouping = adgrad()[,120]))
+  }
+  
+  
+  lik_evidence <- function(){
+    plot(likert(items = adgrad()[,106, drop = FALSE], grouping = adgrad()[,120]))
+  }
+  
+  lik_profskills <- function(){
+    plot(likert(items = adgrad()[,107:112], grouping = adgrad()[,120]))
+  }
+  
+  lik_preparation <- function(){
+    plot(likert(items = adgrad()[,113:119], grouping = adgrad()[,120]))
+  }
+  
   
   # ---------- Read and clean grad and ad data
   
@@ -441,65 +491,54 @@ shinyServer(function(input, output, session) {
     
     
     output$l_emergencies <- renderPlot({
-      l_emergencies <- likert(items = adgrad()[,37:42], grouping = adgrad()[,120])
-      plot(l_emergencies)
+      
+      lik_emergencies()
     })
     
     output$l_surg_preop <- renderPlot({
-      l_surg_preop <- likert(items = adgrad()[,43:51], grouping = adgrad()[,120])
-      plot(l_surg_preop)
+      lik_surg_preop()
     })
     
     output$l_surg_surg <- renderPlot({
-      l_surg_surg <- likert(items = adgrad()[,52:60], grouping = adgrad()[,120])
-      plot(l_surg_surg)
+      lik_surg_surg() 
     })
     
     output$l_surg_postop <- renderPlot({
-      l_surg_postop <- likert(items = adgrad()[,61:69], grouping = adgrad()[,120])
-      plot(l_surg_postop)
+      lik_surg_postop() 
     })
     
     output$l_anaesthesia <- renderPlot({
-      l_anaesthesia <- likert(items = adgrad()[,70:78], grouping = adgrad()[,120])
-      plot(l_anaesthesia)
+      lik_anaesthesia() 
     })
     
     output$l_pm <- renderPlot({
-      l_pm <- likert(items =adgrad()[,79:81], grouping = adgrad()[,120])
-      plot(l_pm)
+      lik_pm()
     })
     
     output$l_healthcareplans <- renderPlot({
-      l_healthcareplans <- likert(items = adgrad()[,82:93], grouping = adgrad()[,120])
-      plot(l_healthcareplans)
+      lik_healthcareplans() 
     })
     
     output$l_epi <- renderPlot({
-      l_epi <- likert(items = adgrad()[,94:102], grouping = adgrad()[,120])
-      plot(l_epi)
+      lik_epi() 
     })
     
     output$l_handling <- renderPlot({
-      l_handling <-likert(items = adgrad()[,103:105], grouping = adgrad()[,120])
-      plot(l_handling)
+      lik_handling() 
     })
     
     output$l_evidence <- renderPlot({
       
-      l_evidence <- likert(items = adgrad()[,106, drop = FALSE], grouping = adgrad()[,120])
-      plot(l_evidence)
+      lik_evidence()
  })
     
     output$l_profskills <- renderPlot({
       
-      l_profskills <- likert(items = adgrad()[,107:112], grouping = adgrad()[,120])
-      plot(l_profskills)
+      lik_profskills() 
     })
     
     output$l_preparation <- renderPlot({
-      l_preparation <- likert(items = adgrad()[,113:119], grouping = adgrad()[,120])
-      plot(l_preparation)
+      lik_preparation() 
       
     })
   

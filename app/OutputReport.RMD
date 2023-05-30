@@ -67,38 +67,58 @@ factor_sum <- function(factor_name, perc_round = 2) {
   }
   
   
+lik_emergencies <- function(){
+  plot(likert(items = params$adgrad[,37:42], grouping = params$adgrad[,120]))
+}
 
-# l_hist <- likert(items = params$adgrad[,1:9], grouping = params$adgrad[,120])
-# 
-# l_exams <- likert(items = params$adgrad[,10:18], grouping = params$adgrad[,120])
-# 
-# l_prioritise_ddx <- likert(items = params$adgrad[,19:27], grouping = params$adgrad[,120])
-# 
-# l_tx_planning <- likert(items = params$adgrad[,28:36], grouping = params$adgrad[,120])
-# 
-# l_emergencies <- likert(items = params$adgrad[,37:42], grouping = params$adgrad[,120])
-# 
-# l_surg_preop <- likert(items = params$adgrad[,43:51], grouping = params$adgrad[,120])
-# 
-# l_surg_surg <- likert(items = params$adgrad[,52:60], grouping = params$adgrad[,120])
-# 
-# l_surg_postop <- likert(items = params$adgrad[,61:69], grouping = params$adgrad[,120])
-# 
-# l_anaesthesia <- likert(items = params$adgrad[,70:78], grouping = params$adgrad[,120])
-# 
-# l_pm <- likert(items = params$adgrad[,79:81], grouping = params$adgrad[,120])
-# 
-# l_healthcareplans <- likert(items = params$adgrad[,82:93], grouping = params$adgrad[,120])
-# 
-# l_epi <- likert(items = params$adgrad[,94:102], grouping = params$adgrad[,120])
-# 
-# l_handling <-likert(items = params$adgrad[,103:105], grouping = params$adgrad[,120])
-# 
-# l_evidence <- likert(items = params$adgrad[,106, drop = FALSE], grouping = params$adgrad[,120])
-# 
-# l_profskills <- likert(items = params$adgrad[,107:112], grouping = params$adgrad[,120])
-# 
-# l_preparation <- likert(items = params$adgrad[,113:119], grouping = params$adgrad[,120])
+lik_surg_preop <- function(){
+  plot(likert(items = params$adgrad[,43:51], grouping = params$adgrad[,120]))
+}
+
+lik_surg_surg <- function(){
+  plot(likert(items = params$adgrad[,52:60], grouping = params$adgrad[,120]))
+}
+
+lik_surg_postop <- function(){
+  plot(likert(items = params$adgrad[,61:69], grouping = params$adgrad[,120]))
+}
+
+lik_anaesthesia <- function(){
+  plot(likert(items = params$adgrad[,70:78], grouping = params$adgrad[,120]))
+}
+
+lik_pm <- function(){
+  plot(likert(items =params$adgrad[,79:81], grouping = params$adgrad[,120]))
+}
+
+
+lik_healthcareplans <- function(){
+  plot(likert(items = params$adgrad[,82:93], grouping = params$adgrad[,120]))
+}
+
+lik_epi <- function (){
+  plot(likert(items = params$adgrad[,94:102], grouping = params$adgrad[,120]))
+}
+
+lik_handling <- function(){
+  plot(likert(items = params$adgrad[,103:105], grouping = params$adgrad[,120]))
+}
+
+
+lik_evidence <- function(){
+  plot(likert(items = params$adgrad[,106, drop = FALSE], grouping = params$adgrad[,120]))
+}
+
+lik_profskills <- function(){
+  plot(likert(items = params$adgrad[,107:112], grouping = params$adgrad[,120]))
+}
+
+lik_preparation <- function(){
+  plot(likert(items = params$adgrad[,113:119], grouping = params$adgrad[,120]))
+}
+
+
+
 
 ```
 
@@ -300,73 +320,74 @@ lik_hist()
 ```
 
 
-<!-- ```{r, fig.cap =  "Examinations\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10} -->
-<!-- plot(l_exams)  -->
-<!-- ``` -->
+```{r, fig.cap =  "Examinations\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10} 
 
-<!-- ```{r, fig.cap= "Prioritise a differential diagnosis\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10} -->
-<!-- plot(l_prioritise_ddx)  -->
-<!-- ``` -->
+lik_exams()
+```
 
-<!-- ```{r, fig.cap = "Treatment planning\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10} -->
-<!-- plot(l_tx_planning)  -->
-<!-- ``` -->
+```{r, fig.cap= "Prioritise a differential diagnosis\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10}
+ lik_prioritise_ddx()  
+```
 
-
-<!-- ```{r, fig.cap = "Emergencies\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10} -->
-<!-- plot(l_emergencies) -->
-<!-- ``` -->
+```{r, fig.cap = "Treatment planning\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10}
+lik_tx_planning()
+```
 
 
-<!-- ```{r, fig.cap = "Surgery (pre-op prep)\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10} -->
-<!-- plot(l_surg_preop) -->
-<!-- ``` -->
-
-<!-- ```{r, fig.cap = "Surgery\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10} -->
-<!-- plot(l_surg_surg) -->
-<!-- ``` -->
+```{r, fig.cap = "Emergencies\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10}
+lik_emergencies()
+```
 
 
-<!-- ```{r, fig.cap = "Surgery (post op care)\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10} -->
-<!-- plot(l_surg_postop) -->
-<!-- ``` -->
+```{r, fig.cap = "Surgery (pre-op prep)\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10}
+lik_surg_preop()
+```
+
+```{r, fig.cap = "Surgery\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10}
+lik_surg_surg()
+```
 
 
-<!-- ```{r, fig.cap = "Anaesthesia\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10} -->
-<!-- plot(l_anaesthesia) -->
-<!-- ``` -->
+```{r, fig.cap = "Surgery (post op care)\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10}
+lik_surg_postop()
+```
 
 
-<!-- ```{r, fig.cap = "Post-mortem\n(1 (Not at all prepared), 5 (Completely prepared))"} -->
-<!-- plot(l_pm) -->
-<!-- ``` -->
+```{r, fig.cap = "Anaesthesia\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10}
+lik_anaesthesia()
+```
 
 
-<!-- ```{r, fig.cap = "Preventative healthcare plans\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10} -->
-<!-- plot(l_healthcareplans) -->
-<!-- ``` -->
-
-<!-- ```{r, fig.cap ="Basic epidemiological investigations\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10} -->
-<!-- plot(l_epi) -->
-<!-- ``` -->
+```{r, fig.cap = "Post-mortem\n(1 (Not at all prepared), 5 (Completely prepared))"}
+lik_pm()
+```
 
 
-<!-- ```{r, fig.cap = "Animal handling\n(1 (Not at all prepared), 5 (Completely prepared))"} -->
-<!-- plot(l_handling) -->
-<!-- ``` -->
+```{r, fig.cap = "Preventative healthcare plans\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10}
+lik_healthcareplans()
+```
 
-<!-- ```{r, fig.cap = "Evaluating evidence\n(1 (Not at all prepared), 5 (Completely prepared))"} -->
-<!-- plot(l_evidence) -->
-<!-- ``` -->
-
-
-
-<!-- ```{r, fig.cap = "Professional skills and attributes required for independent practice\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10} -->
-<!-- plot(l_profskills) -->
-<!-- ``` -->
+```{r, fig.cap ="Basic epidemiological investigations\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10}
+lik_epi()
+```
 
 
-<!-- ```{r, fig.cap = "Professional skills and attributes at the point of graduation\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10} -->
-<!-- plot(l_preparation) -->
-<!-- ``` -->
+```{r, fig.cap = "Animal handling\n(1 (Not at all prepared), 5 (Completely prepared))"}
+lik_handling()
+```
+
+```{r, fig.cap = "Evaluating evidence\n(1 (Not at all prepared), 5 (Completely prepared))"}
+lik_evidence()
+```
+
+
+
+```{r, fig.cap = "Professional skills and attributes required for independent practice\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10}
+lik_profskills()
+```
+
+
+```{r, fig.cap = "Professional skills and attributes at the point of graduation\n(1 (Not at all prepared), 5 (Completely prepared))", fig.height = 10, fig.width = 10}
+lik_preparation()
+```
 

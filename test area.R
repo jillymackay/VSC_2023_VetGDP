@@ -29,6 +29,56 @@ lik_tx_planning <- function(){
 }
 
 
+lik_emergencies <- function(){
+  plot(likert(items = adgrad()[,37:42], grouping = adgrad()[,120]))
+}
+
+lik_surg_preop <- function(){
+  plot(likert(items = adgrad()[,43:51], grouping = adgrad()[,120]))
+}
+
+lik_surg_surg <- function(){
+  plot(likert(items = adgrad()[,52:60], grouping = adgrad()[,120]))
+}
+
+lik_surg_postop <- function(){
+  plot(likert(items = adgrad()[,61:69], grouping = adgrad()[,120]))
+}
+
+lik_anaesthesia <- function(){
+  plot(likert(items = adgrad()[,70:78], grouping = adgrad()[,120]))
+}
+
+lik_pm <- function(){
+  plot(likert(items =adgrad()[,79:81], grouping = adgrad()[,120]))
+}
+
+
+lik_healthcareplans <- function(){
+  plot(likert(items = adgrad()[,82:93], grouping = adgrad()[,120]))
+}
+
+lik_epi <- function (){
+  plot(likert(items = adgrad()[,94:102], grouping = adgrad()[,120]))
+}
+
+lik_handling <- function(){
+  plot(likert(items = adgrad()[,103:105], grouping = adgrad()[,120]))
+}
+
+
+lik_evidence <- function(){
+  plot(likert(items = adgrad()[,106, drop = FALSE], grouping = adgrad()[,120]))
+}
+
+lik_profskills <- function(){
+  plot(likert(items = adgrad()[,107:112], grouping = adgrad()[,120]))
+}
+
+lik_preparation <- function(){
+  plot(likert(items = adgrad()[,113:119], grouping = adgrad()[,120]))
+}
+
 # Test
 
 library(tidyverse)
