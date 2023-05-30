@@ -4,12 +4,8 @@
 ## To Do
 
 
-Get Likert working
+Tweak formatting of app display
 
-Create all the likert objects
-
-Get writing
-
-Write RMD for word doc
+Make faster?
 
 
