@@ -1,5 +1,10 @@
 # This is where the data processing happens
 
+list.of.packages <- c("shiny", "tidyverse", "ggstatsplot", "likert", "grid")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+
+
 
 library(shiny)
 library(tidyverse)
